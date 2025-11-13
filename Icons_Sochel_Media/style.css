@@ -1,0 +1,57 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: #f0f0f0;
+}
+
+.icons {
+  display: flex;
+  gap: 20px;
+  background-color: #000;   /* الخلفية السوداء */
+  padding: 10px 30px;       /* مسافة داخلية من جميع الجهات */
+  border-radius: 12px;      /* زوايا منحنية */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* ظل خفيف لجعلها مرتفعة */
+}
+
+.icons a {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color);
+  font-size: 24px;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icons a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--color);
+  z-index: -1;
+  transform: scale(0);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.icons a:hover::before {
+  transform: scale(1.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.icons a:hover {
+  transform: scale(1.1);
+  color: black;
+}
+
+/* عند الضغط: الأيقونة تصبح سوداء باستخدام filter */
+.icons a:active i {
+  filter: brightness(0) invert(0);
+}
